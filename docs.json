@@ -23,7 +23,6 @@
        {
          "group": "Advanced Usage",
          "pages": [
-           "advanced-usage/advanced-usage",
            "advanced-usage/agent-flow-logic",
            "advanced-usage/agent-variables",
            "advanced-usage/human-approval"
