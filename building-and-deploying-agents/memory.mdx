@@ -1,0 +1,32 @@
+---
+title: "Memory"
+description: "Memory objects can be used within your Agent to remember information from previous Agent executions and user details. Memory objects are flexible to store any information you would like about previous Agent executions. For example, if your Agent needs to remember previous chat history, you can use a memory object to store that information. Memory can also be used to load in information about the user executing the Agent. For example, IDP account information such as a user location can be used in a Agent to summarize the weather for the next week without the user explicitly needing to state that information.
+"
+---
+
+## **Creating a New Memory Object**
+
+1. Navigate to the Project you are working on in the Projects Sub Menu.
+2. Select the Memory tab on the top menu.
+3. Select “New Memory”
+4. Provide a name for the Memory Object.
+
+## **Use the Memory Object in your Agents**
+
+Once you have created a Memory Object it can be used in your Agents:
+
+1. Go to an Agent
+2. On the object selector you can select the memory object
+3. Drag the memory object into the Agent
+4. There are two ways to use memory:
+5. Store: this allows you to write information to the memory object to be stored for later retrieval.
+6. Load: this allows you to retrieve the information in the memory object.
+7. To select whether to store or load memory you can click on the edit icon on the memory object in the Agent.
+
+## **Executing an Agent with Memory**
+
+To ensure memory is being used in the Agent you can pass in a userID or conversation ID to the Agent execution call:
+
+1. The body of the Agent execution API call contains a userId and a Conversation ID
+2. Pass in the userID to uniquely identify the user whose memory object needs to be retrieved
+3. Pass in the Conversation to identify which conversation history needs to be retrieved
