@@ -1,0 +1,40 @@
+---
+title: "Prompts"
+description: "Prompts allow you to tailor the performance and output of AI models used in your agents. Versioned prompts allow you to iterate and refine your prompts based on the output they generate through testing on your available models. Prompts can then be reused across your model configurations and agents. We support both system prompts and user prompts to preseed information into requests and also guide the end user through prompting. of your new file."
+---
+
+## **Prompt Categories**[**​**](http://localhost:3000/building-and-deploying/Agent%20Basics/prompts#prompt-categories)
+
+Prompts are split into two categories in the Airia platform, Prompts and User Prompts. Prompts are system prompts to then be added to model configurations or specific AI operations within Agent workflows. User Prompts are templates that can be surfaced in deployments for chat-focused Agents.
+
+### **Creating a New Prompt**[**​**](http://localhost:3000/building-and-deploying/Agent%20Basics/prompts#creating-a-new-prompt)
+
+If no prompts available in the library suit your need as a starting point, you can create a new prompt from scratch.
+
+To create a new prompt:
+
+1. Navigate to the Project you are working on in the Projects Sub Menu.
+2. Select the Prompts tab on the top menu.
+3. Select “New Prompt”.
+4. Provide a name for the prompt.
+5. Within the messages area, enter the prompt.
+6. Multiple messages can be added by selecting \+ Add Message
+
+### **Prompt Variables**[**​**](http://localhost:3000/building-and-deploying/Agent%20Basics/prompts#prompt-variables)
+
+Prompts can be used more broadly as templates across a variety of use cases by including variables. There are two supported methods to add variables in prompts.
+
+1. Use a structure of `{{variable_name}}` in both user prompts and system prompts.
+2. Use a structure of `<variable_name />` in system prompts.
+3. Reference loaded memory from upstream in the agent flow using `<memory value="memory_name" />`.
+
+### **Editing Prompts**[**​**](http://localhost:3000/building-and-deploying/Agent%20Basics/prompts#editing-prompts)
+
+To edit a prompt:
+
+1. Navigate to the Prompts tab for the Project you are working on in the Projects Sub Menu.
+2. Select a prompt from the list view.
+3. Provide an updated description.
+4. Update the prompt in the messages area.
+5. Select Save.
+6. Select Set as Active in order to leverage this latest version within your agents.
