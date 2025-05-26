@@ -10,23 +10,23 @@
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "everyday-usage"
-            ]
-       },
-       {
-         "group": "Advanced Usage",
-         "pages": [
-           "advanced-usage/agent-flow-logic",
-           "advanced-usage/agent-variables",
-           "advanced-usage/human-approval"
-         ]
-          },
+     {
+ "tab": "Guides",
+ "groups": [
+   {
+     "group": "Get Started",
+     "pages": [
+       "everyday-usage"
+     ]
+   },
+   {
+     "group": "Advanced Usage",
+     "pages": [
+       "advanced-usage/agent-flow-logic",
+       "advanced-usage/agent-variables",
+       "advanced-usage/human-approval"
+     ]
+   },
           {
             "group": "Essentials",
             "pages": [
