@@ -1,0 +1,58 @@
+---
+title: "Using Tools in Agents"
+description: "Description of your new file."
+---
+
+Aside from extending a Model with a Tool operation, you can also use them in an Agent as an Action. Tools added to an Agent as a step can be added between other blocks, such as a Data Source, LLM Router, Model, or fire on their own without a Model.
+
+Unlike Tools added to a Model, when a Tool is added to an Agent, the values are determined by the User or set by previous steps coming from the Agent.
+
+With Tools in an Agent Workflow, you can enable advanced workflows where Actions and API Calls can be made in-line with an Agent.
+
+## **Adding a Tool to a Project**[**​**](http://localhost:3000/Integrations/Tools/actions#adding-a-tool-to-a-project)
+
+Follow the setup instructions on how to add a Tool to a project by following the guide [here](http://localhost:3000/Integrations/Tools/).
+
+## **Add a Tool to an Agent**[**​**](http://localhost:3000/Integrations/Tools/actions#add-a-tool-to-an-agent)
+
+Once you've added a Tool to a project and provided it's authentication, you can start using it in an Agent. Let's start by navigating to an Agent:
+
+You will see the added Tools on the left navbar:
+
+The tools can now be dragged and dropped as a "Step" in the pipeline.
+
+## **Connecting a Tool in an Agent**[**​**](http://localhost:3000/Integrations/Tools/actions#connecting-a-tool-in-an-agent)
+
+Once the Tool is added, you can connect it between steps with lines going to and from the step.
+
+## **Setting Tool Parameters**[**​**](http://localhost:3000/Integrations/Tools/actions#setting-tool-parameters)
+
+Select the Tool to set it's values on the sidebar. From here, you can map values from previous steps onto the Action.
+
+### **User Defined Values**[**​**](http://localhost:3000/Integrations/Tools/actions#user-defined-values)
+
+One way in you can define a value for a parameter is by writing it in.
+
+As you can see in the example above, the Action step is called after a model step. However, it's executed with a value that the user has provided themselves.
+
+### **Agent Variables**[**​**](http://localhost:3000/Integrations/Tools/actions#agent-variables)
+
+You can also use Agent Variables to fetch values from previous steps to fill in for a parameter.
+
+To do so, select the dropdown on the field to pull in the available values.
+
+To retrieve a value from a specific step, you can select the "stepResult" variable, which will show a list of steps available to retrieve as input.
+
+Once saved, your variable will highlight in blue to indicate that it is valid and fill in the value from that step.
+
+In this example, you can see that the user has created a multi-step flow in which the output of multiple Models are fed into the same action, to send an email.
+
+Each parameter can have it's own step setting its value, or a value defined by the user.
+
+## **Testing the Tool**[**​**](http://localhost:3000/Integrations/Tools/actions#testing-the-tool)
+
+After you run the Agent, you will see the output of the Tool shown in the Test. You can also feed this output to a 3rd model to present a natural language summarization of the flow result.
+
+---
+
+By following these steps, you can extend Agents with tools effectively and efficiently. If you have any queries, please refer to the respective tool documentation or reach out for support.

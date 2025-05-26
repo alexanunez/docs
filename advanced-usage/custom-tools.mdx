@@ -1,0 +1,82 @@
+---
+title: "Custom API Tools and Variables"
+description: "Custom API Tools and Variables
+
+The Custom API Tool builder allows you to build a Tool with an external API. This allows your Model to connect to existing APIs and call on to them as functions, passing in "Variables" that plug in to the Tool call.
+
+In this guide, we will be building a custom API tool for the Dall-E Image Generation API."
+---
+
+
+## **Building a Custom API Tool**[**​**](http://localhost:3000/Integrations/Tools/tool_variables#building-a-custom-api-tool)
+
+The Dall-E Image Generation API takes the following configuration:
+
+```
+curl https://api.openai.com/v1/images/generations \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -d '{
+    "model": "dall-e-3",
+    "prompt": "a white siamese cat",
+    "n": 1,
+    "size": "1024x1024"
+  }'
+```
+
+### **Creating a custom tool**[**​**](http://localhost:3000/Integrations/Tools/tool_variables#creating-a-custom-tool)
+
+Let's begin by creating a new Custom API Tool by selecting it from a Project:
+
+You'll see the Custom API Tools page, where you can enter Tool Handling details for the API:
+
+### **Fill in the details for your Tool**[**​**](http://localhost:3000/Integrations/Tools/tool_variables#fill-in-the-details-for-your-tool)
+
+Copy the following sections:
+
+- Tool Name - Name for the Tool
+- Tool Purpose - A description indiating how the Tool should be called. _The Tool Purpose should be treated a Prompt._
+- API Endpoint - The API that will be called for the Tool (select the dropdown to choose between GET, POST, PUT, and PATCH APIs)
+- Body - Copy the JSON as a Body to the right side of the Tool
+- Headers - API Headers with Key and Values
+
+Providing the Tool definition as shown above will execute it as is. For example, you can see that the caption in the Body field is written as
+
+```
+{
+    "model": "dall-e-3",
+    "prompt": "a white siamese cat",
+    "n": 1,
+    "size": "1024x1024"
+}
+```
+
+This means that the Model will always call the Dall-E Tool with these values and generate an image of a _white siamese cat_.
+
+## **Tool Variables**[**​**](http://localhost:3000/Integrations/Tools/tool_variables#tool-variables)
+
+By using Tool Variables, you can indicate to the Model which fields to generate using AI, and replae them in the API.
+
+For example you might want the model to pick up cues from the user's query, and replace them in the prompt. To do so, we can use _Tool Variables_.
+
+Let's define a Tool variable for Image Caption.
+
+This Variable can now be used in various parts of the Tool to allow the Model to substite this value.
+
+### **Using Tool Variables in Tool definition**[**​**](http://localhost:3000/Integrations/Tools/tool_variables#using-tool-variables-in-tool-definition)
+
+Let's replace the text in the body to use the newly created Tool Variable "caption". To do so, use HTML tag identifiers `<`and `/>`. When you do, you'll see any created Tool Variables show up as auto complete to help you fill in those values.
+
+What this does is whenever the user's prompt includes any relevant information to the Tool, the model will substitue the corresponding values. If the user asks to generate an image of a Big Red Puppy, the model will set the value of "caption" to "Big Red Puppy".
+
+Similarly, you can use the tool variables in various parts of the Tool (if required). Tool variables can be used in
+
+- Body
+- URL Endpoint
+- Headers
+
+## **Using the custom API Tool**[**​**](http://localhost:3000/Integrations/Tools/tool_variables#using-the-custom-api-tool)
+
+Follow the instructions on adding a new tool on the [Tools doc](http://localhost:3000/Integrations/Tools/), and authenticating on [Authenticating Tools](http://localhost:3000/Integrations/Tools/authenticating_tools) page.
+
+By calling the newly created API tool, you'll see that the model picks up on your prompt cues to generate an image of a Big Red Puppy\!
