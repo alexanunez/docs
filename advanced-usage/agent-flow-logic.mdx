@@ -1,0 +1,83 @@
+---
+title: "Agent Flow Logic"
+description: "Agent Flow Logic is a native workflow capability for building sophisticated, end‑to‑end agent execution flows tailored to your specific use case."
+---
+
+<Info>
+  With Agent Flow Logic steps, you can:
+
+  - **Model complex decision trees** that route user queries to the right sub‑agents or tools
+  - **Branch dynamically** based on input content, metadata, or intermediate results
+  - **Parallelize work** to speed up multi‑step operations
+  - **Use Human approvals** to involve human in the agent execution loop
+
+  This powerful feature set allows developers to encapsulate business logic, error handling, and context management directly within the agent configuration—no external orchestration required.
+</Info>
+
+## **Agent Router Step**[**​**](https://explore.airia.com/developing_agents/Agent%20Flow%20Logic#agent-router-step)
+
+The Agent Router is the core of Agent Flow Logic. It evaluates incoming requests and determines which route or routes to execute, using an “agentic” LLM‑driven decision step. The router sends descriptions of each available route (including purpose, input/output specs, and any metadata) along with the user’s query to the LLM, which then selects:
+
+1. **A single best‑fit route**
+2. **Multiple concurrent routes** when the query matches more than one handler
+
+## **How It Works**[**​**](https://explore.airia.com/developing_agents/Agent%20Flow%20Logic#how-it-works)
+
+1. **Define Routes and Select a LLM**
+   - Give each route a clear description.
+   - Optionally set a **default route** (see below).
+2. **LLM Decision**
+   - On each invocation, the router prompts the LLM with:
+     - The user’s input
+     - Descriptions of each route
+     - (If enabled) Recent chat history
+   - The LLM replies with one or more route identifiers.
+3. **Dispatch**
+   - The system invokes the selected route(s), passing along any extracted parameters and context.
+   - Route results are collected and returned to the user (or fed into downstream steps).
+
+---
+
+## **Single Route Execution**[**​**](https://explore.airia.com/developing_agents/Agent%20Flow%20Logic#single-route-execution)
+
+By default, the Agent Router picks only **one** route per request—the one the LLM deems the best match. This is ideal when:
+
+- You have **mutually exclusive** handlers (e.g., “Check Weather” vs. “Book Flight”).
+- You want a **simplified, linear** workflow for each user query.
+
+---
+
+## **Execute Multiple Routes in Parallel**[**​**](https://explore.airia.com/developing_agents/Agent%20Flow%20Logic#execute-multiple-routes-in-parallel)
+
+For scenarios where a query may legitimately touch on more than one domain, you can enable **parallel routing**. When **Execute Multiple Routes** is turned on:
+
+- The router can select **all routes** whose descriptions match the input.
+- Each matching route runs **simultaneously**, reducing end‑to‑end latency.
+- Results are merged and returned in a single combined response.
+
+Use parallel routing when your application needs to gather information from multiple sub‑agents in one go (e.g., performing sentiment analysis and topic extraction in the same pass).
+
+---
+
+### **Include Chat History**[**​**](https://explore.airia.com/developing_agents/Agent%20Flow%20Logic#include-chat-history)
+
+Long‑running conversations often require context to make accurate routing decisions. By enabling **Include Chat History**, you instruct the router to:
+
+- Pass the last _N_ messages from the conversation along with the routing prompt
+- Maintain stateful awareness of user intent across turns
+
+This is especially useful for multi‑step workflows (surveys, booking flows, troubleshooting guides) where the correct handler may depend on prior user responses.
+
+---
+
+## **Setting the Default Route**[**​**](https://explore.airia.com/developing_agents/Agent%20Flow%20Logic#setting-the-default-route)
+
+A **default route** acts as a fallback when:
+
+- The LLM is **uncertain** which route fits best
+- **No** route descriptions sufficiently match the user’s query
+
+## **Why and When to Configure**[**​**](https://explore.airia.com/developing_agents/Agent%20Flow%20Logic#why-and-when-to-configure)
+
+- **Graceful Degradation**: Ensure users never hit a dead end if the router can’t decide.
+- **Catch‑All Logic**: Implement generic handlers (e.g., “I’m sorry, I didn’t understand that. Can I help with…?”).
