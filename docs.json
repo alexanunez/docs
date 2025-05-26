@@ -30,7 +30,7 @@
           {
             "group": "Building and Deploying Agents",
             "pages": [
-              "building-and-deploying-agents/building-agents/agents",
+              "building-and-deploying-agents/building-agents/agents.mdx",
               "building-and-deploying-agents/building-agents/memory",
               "building-and-deploying-agents/building-agents/models",
               "building-and-deploying-agents/building-agents/prompts",
