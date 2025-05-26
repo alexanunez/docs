@@ -1,0 +1,64 @@
+---
+title: "Models"
+description: "The model library provides access to a large number of available models that you can leverage within your projects and Agents. This includes models from the leading providers and also includes Airia's own fine tuned models.
+
+You can also now enhance your AI solutions with seamless AzureML integration. Incorporate your Azure ML-hosted models directly into your agents effortlessly​."
+---
+
+## **Adding a model**[**​**](http://localhost:3000/building-and-deploying/Agent%20Basics/models#adding-a-model)
+
+You can search, review costs, and add models to an existing project or to a new project.
+
+To add a model to a project:
+
+1. Select the desired model
+2. Review the information
+3. Select **Add to Project**
+4. Select the project you wish to add the model to
+5. Provide a friendly name to help you remember the model
+6. Select if you'll use the Airia Universal Key or if you want to provide your own credentials for the model provider
+7. Your model is now ready for use within Agents and prompt testing
+
+## **Editing a model**[**​**](http://localhost:3000/building-and-deploying/Agent%20Basics/models#editing-a-model)
+
+You can revisit a model configuration at any time to edit the model display name, credential, prices or system prompt.
+
+To edit a model:
+
+1. Navigate to the **Models** page of the project
+2. Select the model you would like to edit
+3. Edit the desired settings
+4. Save model changes
+
+## **Adding a custom model**[**​**](http://localhost:3000/building-and-deploying/Agent%20Basics/models#adding-a-custom-model)
+
+You can add models that Airia has not published when you bring your own key. This allows you to leverage existing accounts with model providers for the endpoints supported by Airia.
+
+To add a custom model:
+
+1. Navigate to the **Models** Library.
+2. From the footer message, select **Add a model**.
+3. Provide a display name, and select the model provider.
+4. Add the model endpoint, and provide a model name. Find supported provider endpoints below.
+5. To get the most of Airia's consumption tracking, input the price charged by the provider for model usage.
+6. Select the input type, and provide a system prompt [Note: a system prompt is not required]
+
+
+Supported Endpoints
+
+| Provider | Endpoint |
+|----------|----------|
+| AI21 | <input size="100" type="text" value="https://api.ai21.com/v1/chat/completions"></input> |
+| Anthropic | <input size="100" type="text" value="https://api.anthropic.com/v1/messages"></input> |
+| AWS Bedrock | <input size="100" type="text" value="https://console.aws.amazon.com"></input> |
+| Azure AI Studio | <input size="100" type="text" value="https://&#123;&#123;Model-Friendly-Name&#125;&#125;.&#123;&#123;Region&#125;&#125;.models.ai.azure.com/chat/completions"></input> |
+| Azure OpenAI | <input size="100" type="text" value="https://&#123;&#123;deploymentId&#125;&#125;.openai.azure.com/openai/deployments/&#123;&#123;Model-Friendly-Name&#125;&#125;/chat/completions"></input> |
+| Cohere | <input size="100" type="text" value="https://api.cohere.com/v1/chat"></input> |
+| Google | <input size="100" type="text" value="https://generativelanguage.googleapis.com/v1/models"></input> |
+| Mistral | <input size="100" type="text" value="https://api.mistral.ai/v1/chat/completions"></input> |
+| OpenAI | <input size="100" type="text" value="https://api.openai.com/v1/chat/completions"></input> |
+| Ollama | <input size="100" type="text" value="http(s)://&#123;&#123;SomeIpOrName&#125;&#125;:11434/api/chat"></input> |
+| Perplexity | <input size="100" type="text" value="https://api.perplexity.ai/chat/completions"></input> |
+| Replicate | <input size="100" type="text" value="https://api.replicate.com/v1/models/&#123;&#123;Model-Name&#125;&#125;/predictions"></input> |
+| Together AI | <input size="100" type="text" value="https://api.together.xyz/v1/chat/completions"></input> |
+| xAI | <input size="100" type="text" value="https://api.x.ai/v1/"></input> |
