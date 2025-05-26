@@ -12,3 +12,62 @@ Azure
 Anthropic
 
 AWS Bedrock
+
+To help you understand how we can use tools effectively, we created a short tutorial to show you how they can be used.
+
+## **Configuring a Tool**[**​**](http://localhost:3000/Integrations/Tools/#configuring-a-tool)
+
+When configuring a tool, you need to provide:
+
+1. **Tool Description or Purpose**
+2. **Example Use Cases**
+3. **API Call**
+4. **Parameters for your API**
+
+### **Example: Setting Up a Google Search Tool**[**​**](http://localhost:3000/Integrations/Tools/#example-setting-up-a-google-search-tool)
+
+This example shows how to set up a tool to perform a Google Search via an [API](https://serper.dev/?ref=alphasec.io).
+
+#### **Steps to Configure**[**​**](http://localhost:3000/Integrations/Tools/#steps-to-configure)
+
+1. **Navigate to a Project**
+
+   Select "Tools" on the upper navigation bar, which will allow you to view the tools that are already in your Project.
+2. **Select New Tool**
+
+   Select the option to create a New Tool:
+
+   This will take you to the library of new tools that you can add, or for you to create a new one.
+3. **Add a tool to the library**
+
+   You can either add a tool that is already available to you to the library, or create a new one with a custom definition.
+4. **Adding a custom tool**
+
+   When adding a custom Tool, you will see a page that allows you to configure the tool manually.
+5. **Adding an existing tool"**
+
+   You can also add an existing tool from the library, which will present you with a
+6. **Provide authentication**
+
+   Each Tool has it's own authentication, as dictated by the API Provider. Add this to the Tool by selecting on the corresponding field, and configuring it with the credendial.
+
+   As an example, for a tool that requires Bearer Authentication, you would select Bearer authentication, and add the corresponding credential to it. You can select from one of the existing values, or create a new one before adding it.
+7. **Create an Agent**
+
+Add one of the models that support tools to the Agent:
+
+11. **Edit the Tool**
+
+Click the Model block to open the sidebar, and add a tool from the list and save:
+
+11. **Save the Agent**
+
+The tool should appear as part of the model footer:
+
+## **Testing the Tool**[**​**](http://localhost:3000/Integrations/Tools/#testing-the-tool)
+
+After adding the tool to an Agent, it can be tested via the playground. Test the tool by sending a query that prompts the LLM to use the tool. Tools work with both Streaming and Non-streaming methods in the Playground.
+
+---
+
+By following these steps, you can extend models with tools effectively and efficiently. If you have any queries, please refer to the respective tool documentation or reach out for support.
