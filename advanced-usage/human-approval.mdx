@@ -1,0 +1,58 @@
+---
+title: "Human Approvals for Agent Workflows"
+description: "Insert checkpoints for human approvals or data input anywhere in your agent workflows when full automation isn't possible. Approvals are the simplest form of Human-in-the-Loop. They prompt the assigned person to approve before the agent run moves forward. You can add relevant context, like variables, to help them make the decision and create a clear, useful request for the approver, even if they're not a platform user."
+---
+
+## **When to Use It**[**​**](https://explore.airia.com/developing_agents/Human%20Approval3#when-to-use-it)
+
+### **Critical Decisions or High Stakes**[**​**](https://explore.airia.com/developing_agents/Human%20Approval3#critical-decisions-or-high-stakes)
+
+If an agent is about to take an action that could have serious implications (e.g., send an email to a client, delete a record, trigger a financial transaction), you should route to a human for approval.
+
+**Use Case Examples:**
+
+- Approving a customer refund above \$1,000
+- Publishing AI-generated content
+- Sending sensitive documents externally
+
+### **Uncertain Model Confidence / Ambiguity**[**​**](https://explore.airia.com/developing_agents/Human%20Approval3#uncertain-model-confidence--ambiguity)
+
+When your AI agent or LLM has **low confidence** in its output or **multiple plausible answers**, it's smart to pause for human review.
+
+**Use Case Examples:**
+
+- Entity resolution where multiple customers match
+- Legal document classification
+- AI-generated SQL query that could delete or overwrite records
+
+**Tip:** You can base this on LLM output confidence scores or ambiguity flags in your own logic.
+
+### **Agent-as-Assistant / Support Agent Copilot**[**​**](https://explore.airia.com/developing_agents/Human%20Approval3#agent-as-assistant--support-agent-copilot)
+
+In customer support or sales, the agent can prepare a draft response, but a human agent needs to review or edit before sending.
+
+**Use Case Examples:**
+
+- AI-generated response to a high-value customer's complaint
+- Draft email with pricing info
+
+## **How to Use It**[**​**](https://explore.airia.com/developing_agents/Human%20Approval3#how-to-use-it)
+
+1. **Drag and drop the Human Approval Step** from the Flow Control section on the canvas in Agent Studio
+
+2. **Set up the step** by choosing one or more approvers who'll get the request, review it, and then act on it. _Tip: you can also select a user group that will receive the request._
+
+   _Note:_ Following an agent's submission of an approval request, notifications are sent to all selected approvers in the notification center. Email notifications are also sent if that option is activated.
+3. **All approvers will receive the message** via both email and the notification system.
+4. **The content for the approval request body** will be generated using the combined input from the previous steps.
+5. **Agent Builder can describe the approval and the denial route.** This is very important information for the approver to be aware what will follow up after the action.
+
+   Here's how it appears in the approval request:
+6. **Enable email notifications** if you want the approvers to receive an email with a link to the approval table.
+7. **Upon completion of the agent's execution**, it will stop (halt), and an approval request will be created. The agent builder can monitor the status in the logs. Following the approval or rejection, the execution log will be updated to reflect subsequent actions.
+8. **In the notification center**, the approver will receive a message with a link to the approval:
+
+   and they will receive an Email with a link to the request.
+9. **The approver can check, edit, and either approve or decline** the request to let the agent continue its work based on the request details.
+
+11. **Once approved**, the agent builder or admin can review what happened following the approval or decline.
