@@ -1,55 +1,57 @@
-Data sources in the Aria platform enable you to integrate data from various origins into your Agent. Once a data source is added, the data undergoes ingestion, encoding, and storage in vector databases, making it ready for subsequent ragging and tooling operations.
+---
+title: "Data Sources"
+description: "Data sources in the Aria platform enable you to integrate data from various origins into your Agent. Once a data source is added, the data undergoes ingestion, encoding, and storage in vector databases, making it ready for subsequent ragging and tooling operations.
+Data Source connectors can be used to ingest different files, and use them as your knowledge in an Agent."
+---
 
-Data Source connectors can be used to ingest different files, and use them as your knowledge in an Agent.
+## Supported File Types
 
-File Types supported
 Our various Data Sources support a variety of different file types, including:
 
-Office Documents*
-Word Documents
-Excel Files*†
-Powerpoint Files
-JSON†
-CSV†
-Markdown
-Images
-JPEG/JPG
-PNG
-BMP
-TIFF
-HEIF*‡
-PlainText files
-PDF§
-* Word, Excel and Powerpoint supported as DOCX/DOC, XLSX/XLS and PPTX/PPT respectively
+- Office Documents\*
+  - Word Documents
+  - Excel Files\*†
+  - Powerpoint Files
+- JSON†
+- CSV†
+- Markdown
+- Images
+  - JPEG/JPG
+  - PNG
+  - BMP
+  - TIFF
+  - HEIF\*‡
+- PlainText files
+- PDF§
 
-† JSON files are supported as text only. Excel and CSV files are supported as text (file size limit is 50MB) and SQL (file size limit is 100MB).
+> _\* Word, Excel and Powerpoint supported as DOCX/DOC, XLSX/XLS and PPTX/PPT respectively_
+>
+> _† JSON files are supported as text only. Excel and CSV files are supported as text (file size limit is 50MB) and SQL (file size limit is 100MB)._
+>
+> _‡ HEIF files aren't supported for Microsoft connectors due to how files are processed_
+>
+> _§ Supported in Text-only mode or Text with Images_
 
-‡ HEIF files aren't supported for Microsoft connectors due to how files are processed
-
-§ Supported in Text-only mode or Text with Images
-
-File Upload supported file types and sizes:
+## **File Upload supported file types and sizes:**
 
 All file types listed above are supported for File upload provided file size is up to 50MB.
 
 Files which content is script (PHP, JS, etc) are not supported regardless of their file type. Such files can be ingested via any other connector.
 
-How to Add a New Data Source
-Navigate to the Data Sources sub-menu within your project.
-Click on New Data Source.
-Browse the connector library and select the appropriate data source.
-Provide a name and fill out any additional required fields specific to the selected data source type.
-Choose the Database, Embedding Model, and Chunking Strategy that best suits your data source.
-Airia Connector Library
-Connectors
+## **How to Add a New Data Source**[**​**](http://localhost:3000/Integrations/Data-Source-Connectors/data-sources#how-to-add-a-new-data-source)
 
-Managing a Data Source
+1. Navigate to the **Data Sources** sub-menu within your project.
+2. Click on **New Data Source**.
+3. Browse the connector library and select the appropriate data source.
+4. Provide a name and fill out any additional required fields specific to the selected data source type.
+5. Choose the Database, Embedding Model, and Chunking Strategy that best suits your data source.
+
+## **Managing a Data Source**[**​**](http://localhost:3000/Integrations/Data-Source-Connectors/data-sources#managing-a-data-source)
+
 After a data source has been created, it can be easily managed from the list view. Selecting a data source will allow you to view and edit key details, review the data ingested from that source, and adjust the ingest setup as needed. For file-based data sources, you can also upload files directly to the platform in this section.
 
-Edit a Data Source
-Edit Data Source
+### **Edit a Data Source**[**​**](http://localhost:3000/Integrations/Data-Source-Connectors/data-sources#edit-a-data-source)
 
-Additional Resoures
+## **Additional Resoures**[**​**](http://localhost:3000/Integrations/Data-Source-Connectors/data-sources#additional-resoures)
+
 We have created tutorials on how to manage data sources and updating your data sources to help.
-
-Thumbnail Thumbnail
